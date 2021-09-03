@@ -6,10 +6,10 @@ const browsersync = require("browser-sync");
 
 const dist = "./dist/",
       docs = "./docs/";
-      // const dist = "/Applications/MAMP/htdocs/test";
+/* const dist = "D:/Distrib/OpenServer/domains/dist"; */
 
 gulp.task("copy-html", () => {
-    return gulp.src("./src/index.html")
+    return gulp.src("./src/*.html")
                 .pipe(gulp.dest(dist))
                 .pipe(gulp.dest(docs))
                 .pipe(browsersync.stream());
@@ -67,7 +67,7 @@ gulp.task("watch", () => {
       notify: true
     });
     
-    gulp.watch("./src/index.html", gulp.parallel("copy-html"));
+    gulp.watch("./src/*.html", gulp.parallel("copy-html"));
     gulp.watch("./src/assets/**/*.*", gulp.parallel("copy-assets"));
     gulp.watch("./src/js/**/*.js", gulp.parallel("build-js"));
 });
