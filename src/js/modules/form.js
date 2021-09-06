@@ -24,14 +24,8 @@ export default class Form {
                 if (e.key.match(/[^a-z 0-9 @ \.]/ig)) {
                     e.preventDefault();
                 }
-                /* input.value.replace(/[a-z]/ig, ''); */
             });
         });
-        /* mailInputs.forEach(input => {
-            input.addEventListener('input', () => {
-                input.value = input.value.replace(/[a-z]/ig, '');
-            });
-        }); */
     }
 
     initMask() {

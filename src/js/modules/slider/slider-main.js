@@ -45,14 +45,18 @@ export default class MainSlider extends Slider {
             item.addEventListener('click', () => {
                 this.plusSlides(1);
             });
-
-            item.parentNode.previousElementSibling.addEventListener('click', (e) => {
-                e.preventDefault();
-                this.slideIndex = 1;
-                this.showSlides(this.slideIndex);
-            });
         });
 
+        document.querySelectorAll('.sidecontrol a').forEach(item => {
+            if (!item.classList.contains('next')){
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.slideIndex = 1;
+                    this.showSlides(this.slideIndex);
+                });
+            }
+        });
+            
         this.prevModules.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -60,6 +64,7 @@ export default class MainSlider extends Slider {
                 this.plusSlides(-1);
             });
         });
+
         this.nextModules.forEach(item => {
             item.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -78,6 +83,5 @@ export default class MainSlider extends Slider {
             this.showSlides(this.slideIndex);
             this.bindTriggers();
         } 
-
     }
 }
